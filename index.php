@@ -32,12 +32,15 @@ switch ($method) {
         //     echo json_encode($users);
         //     break;
     case "POST":
+        $name = $_POST['name'];
+        $mobile = $_POST['mobile'];
+        $email = $_POST['email'];
         $user = json_decode(file_get_contents('php://input'));
-        $sql = "INSERT INTO users (id, nom, email, mobile) VALUES( null, :nom, :email, :mobile)";
+        $sql = "INSERT INTO reactusers (name,mobile,email) VALUES('$name','$mobile','$email');";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':nom', $user->nom, PDO::PARAM_STR);
-        $stmt->bindParam(':email', $user->email, PDO::PARAM_STR);
-        $stmt->bindParam(':mobile', $user->mobile, PDO::PARAM_STR);
+        // $stmt->bindParam(1, $user->name, PDO::PARAM_STR);
+        // $stmt->bindParam(2, $user->email, PDO::PARAM_STR);
+        // $stmt->bindParam(3, $user->mobile, PDO::PARAM_STR);
 
 
         if ($stmt->execute()) {

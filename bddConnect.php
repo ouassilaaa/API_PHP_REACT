@@ -6,7 +6,7 @@
 class DbConnect
 {
 	private $server = 'localhost';
-	private $dbname = 'api_react';
+	private $dbname = 'react';
 	private $user = 'root';
 	private $pass = 'root';
 
