@@ -1,19 +1,20 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: *");
 
-echo "test";
-include 'bddConnect.php';
-$objDb = new DbConnect;
-$conn = $objDb->connect();
+// include './utils/bddConnect.php';
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Headers: *");
+// header("Access-Control-Allow-Methods: *");
+
+// echo "test";
+// $objDb = new DbConnect;
+// $conn = $objDb->connect();
 
 
 
-$method = $_SERVER['REQUEST_METHOD'];
-switch ($method) {
+// $method = $_SERVER['REQUEST_METHOD'];
+// switch ($method) {
         // case "GET":
         //     $sql = "SELECT * FROM users";
         //     $path = explode('/', $_SERVER['REQUEST_URI']);
@@ -31,25 +32,26 @@ switch ($method) {
 
         //     echo json_encode($users);
         //     break;
-    case "POST":
-        $name = $_POST['name'];
-        $mobile = $_POST['mobile'];
-        $email = $_POST['email'];
-        $user = json_decode(file_get_contents('php://input'));
-        $sql = "INSERT INTO reactusers (name,mobile,email) VALUES('$name','$mobile','$email');";
-        $stmt = $conn->prepare($sql);
-        // $stmt->bindParam(1, $user->name, PDO::PARAM_STR);
-        // $stmt->bindParam(2, $user->email, PDO::PARAM_STR);
-        // $stmt->bindParam(3, $user->mobile, PDO::PARAM_STR);
+    // case "POST":
+    //     $name = $_POST['name'];
+    //     $mobile = $_POST['mobile'];
+    //     $email = $_POST['email'];
+
+    //     $user = json_decode(file_get_contents('php://input'));
+    //     $sql = "INSERT INTO reactusers (name,mobile,email) VALUES('$name','$mobile','$email');";
+    //     $stmt = $conn->prepare($sql);
+    //     // $stmt->bindParam(1, $user->name, PDO::PARAM_STR);
+    //     // $stmt->bindParam(2, $user->email, PDO::PARAM_STR);
+    //     // $stmt->bindParam(3, $user->mobile, PDO::PARAM_STR);
 
 
-        if ($stmt->execute()) {
-            $response = ['status' => 1, 'message' => 'Record created successfully.'];
-        } else {
-            $response = ['status' => 0, 'message' => 'Failed to create record.'];
-        }
-        echo json_encode($response);
-        break;
+    //     if ($stmt->execute()) {
+    //         $response = ['status' => 1, 'message' => 'Record created successfully.'];
+    //     } else {
+    //         $response = ['status' => 0, 'message' => 'Failed to create record.'];
+    //     }
+    //     echo json_encode($response);
+    //     break;
 
         // case "PUT":
         //     $user = json_decode(file_get_contents('php://input'));
@@ -84,4 +86,4 @@ switch ($method) {
         //     }
         //     echo json_encode($response);
         //     break;
-}
+// }
