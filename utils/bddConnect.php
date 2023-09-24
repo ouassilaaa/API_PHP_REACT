@@ -7,7 +7,7 @@ class BddConnect
 
 {
 	private $server = 'localhost';
-	private $dbname = 'react';
+	private $dbname = 'ac2l';
 	private $user = 'root';
 	private $pass = 'root';
 
